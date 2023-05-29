@@ -9,56 +9,47 @@
     <title>Document</title>
 </head>
 <body>
-    <input type="file" id="arquivo" onChange="handleFile(this.files)">
-
-    <table class="table-q200">
-        <tr>
-          <th>Código</th>
-          <th>Data</th>
-          <th>Entrada</th>
-          <th>Saída</th>
-          <th>Saldo</th>
-        </tr>
-        
-      </table>
+    <div>
+      <input type="file" id="arquivo" onChange="handleFile(this.files)">
+    </div>
 
       <div class="TabControl">
         <div id="header">
           <ul class="abas">
             <li>
-              <div class="aba" data-index="0">
-                <span>Tab 1</span>
+              <div class="aba selected" data-index="0">
+                <span>Endereço</span>
               </div>
             </li>
             <li>
               <div class="aba" data-index="1">
-                <span>Tab 2</span>
+                <span>Estabelecimentos</span>
               </div>
             </li>
             <li>
               <div class="aba" data-index="2">
-                <span>Tab 3</span>
+                <span>Registros</span>
               </div>
             </li>
             <li>
               <div class="aba" data-index="3">
-                <span>Tab 4</span>
+                <span>Resumo</span>
               </div>
             </li>
           </ul>
         </div>
         <div id="content">
-          <div class="conteudo" data-index="0">
-            Conteúdo da aba 1
+          <div class="conteudo show" data-index="0">
+            Carregue um arquivo!
           </div>
           <div class="conteudo" data-index="1">
-            Conteúdo da aba 2
+            Carregue um arquivo!
           </div>
           <div class="conteudo" data-index="2">
-            Conteúdo da aba 3
+            Carregue um arquivo!
           </div>
           <div class="conteudo" data-index="3">
-            Conteúdo da aba 4
+            Carregue um arquivo!
           </div>
         </div>
       </div>

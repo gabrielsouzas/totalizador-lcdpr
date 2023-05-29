@@ -12,6 +12,12 @@
     scroll-padding-top: 2rem;
 }
 
+/* VARIAVEIS */
+:root {
+    --cor-aba: #3A5FCD;
+    --cor-aba-selec: #27408B;
+}
+
 body {
     background-color: rgba(218, 217, 217, 0.582);
 }
@@ -32,8 +38,7 @@ td, th {
 
 .TabControl{ 
     width:100%; 
-    overflow:hidden; 
-    height:400px;
+    height:650px;
     margin: 8px;
 }
 .TabControl #header{ 
@@ -43,8 +48,9 @@ td, th {
 }
 .TabControl #content{ 
     width:100%;
-    overflow:hidden; 
-    height:100%; 
+    height:100%;
+    border-radius: 5px;
+    overflow: scroll;
 }
 .TabControl .abas{
     display:inline;
@@ -53,41 +59,33 @@ td, th {
     float:left;
 }
 .aba{
-    width:100px; 
+    width:160px; 
     height:30px; 
     border-radius:8px 8px 0 0;
     text-align:center; 
     padding-top:5px;
     margin-left: 1px;
-    background:#3A5FCD;
+    background:var(--cor-aba);
     cursor: pointer;
 }
 .aba:hover{
-    width:100px; 
-    height:30px; 
-    border-radius:5px 5px 0 0;
-    text-align:center; 
-    padding-top:5px; 
-    background:#27408B;
+    background:var(--cor-aba-selec);
 }
 .ativa span, .selected span{
     color:#fff;
 }
 .TabControl #content{
-    background:#27408B;
+    background:var(--cor-aba-selec);
 }
 .TabControl .conteudo{
     width:100%;  
-    background:#27408B; 
-    display:none; 
+    background:var(--cor-aba-selec); 
+    display:none;
+    align-items: center;
+    justify-content: center;
     height:100%;
     color:#fff;
 }
 .selected{
-    width:100px; 
-    height:30px;
-    border-radius:5px 5px 0 0;
-    text-align:center; 
-    padding-top:5px; 
-    background:#27408B;
+    background:var(--cor-aba-selec);
 }
