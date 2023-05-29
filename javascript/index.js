@@ -30,6 +30,7 @@ function handleFile(files){
                     "saldo": arrayLine[4],
                 }
                 Q200.push(novo_q200);
+                table_q200.innerHTML += 
             }
         });
 
