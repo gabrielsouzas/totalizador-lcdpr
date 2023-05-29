@@ -55,3 +55,22 @@ function formatMoney(value) {
     return  parseNumber.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
 }
 
+/* Abas */
+
+const abas = document.querySelectorAll('.aba');
+const conteudos = document.querySelectorAll('.conteudo');
+
+abas.forEach(aba => {
+    aba.addEventListener('click', () => {
+        clickAba(Number(aba.getAttribute('data-index')));
+    });
+});
+
+function clickAba(index) {
+    for (let i = 0; i < conteudos.length; i++) {
+        conteudos[i].style.display = 'none';
+        abas[i].classList.remove('selected');
+    }
+    conteudos[index].style.display = 'flex';
+    abas[index].classList.add('selected');
+}
