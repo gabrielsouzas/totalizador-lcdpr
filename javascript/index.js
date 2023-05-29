@@ -30,7 +30,13 @@ function handleFile(files){
                     "saldo": arrayLine[4],
                 }
                 Q200.push(novo_q200);
-                table_q200.innerHTML += 
+                table_q200.innerHTML += `<tr>
+                                            <td>${arrayLine[0]}</td>
+                                            <td>${formatDate(arrayLine[1])}</td>
+                                            <td>${formatMoney(arrayLine[2])}</td>
+                                            <td>${formatMoney(arrayLine[3])}</td>
+                                            <td>${formatMoney(arrayLine[4])}</td>
+                                        </tr>`;
             }
         });
 
@@ -38,4 +44,14 @@ function handleFile(files){
         console.log(Q200);
     };
 };
+
+function formatDate(value) {
+    return `${value.slice(0,2)}/${value.slice(2)}`;
+}
+
+function formatMoney(value) {
+    let insertDot = `${value.slice(0,value.length - 2)}.${value.slice(-2)}`;
+    let parseNumber = Number(insertDot);
+    return  parseNumber.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
+}
 
