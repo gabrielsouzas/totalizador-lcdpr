@@ -64,6 +64,7 @@ function handleFile(files){
         Q200.shift();
         conteudos[3].innerHTML = "";
         conteudos[3].appendChild(table_q200);
+        conteudos[3].style.alignItems = 'flex-start';
         //console.log(Q200);
     };
 };

@@ -1,57 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="index.css">
-    <script defer src="index.js"></script>
-    <title>Document</title>
-</head>
-<body>
-    <div>
-      <input type="file" id="arquivo" onChange="handleFile(this.files)">
-    </div>
 
-      <div class="TabControl">
-        <div id="header">
-          <ul class="abas">
-            <li>
-              <div class="aba selected" data-index="0">
-                <span>Endereço</span>
-              </div>
-            </li>
-            <li>
-              <div class="aba" data-index="1">
-                <span>Estabelecimentos</span>
-              </div>
-            </li>
-            <li>
-              <div class="aba" data-index="2">
-                <span>Registros</span>
-              </div>
-            </li>
-            <li>
-              <div class="aba" data-index="3">
-                <span>Resumo</span>
-              </div>
-            </li>
-          </ul>
-        </div>
-        <div id="content">
-          <div class="conteudo show" data-index="0">
-            Carregue um arquivo!
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="index.css" />
+  <script defer src="index.js"></script>
+  <title>Visualizador LCDPR</title>
+</head>
+
+<body>
+  <div>
+    <h1>Visualizador Livro Caixa Digital do Produtor Rural (LCDPR)</h1>
+  </div>
+  <div class="conteiner-file-input">
+    <label for="arquivo">⬇️ Carregue o arquivo ⬇️ </label>
+    <input type="file" class="custom-file-input" name="arquivo" id="arquivo" onChange="handleFile(this.files)" />
+  </div>
+
+  <div class="TabControl">
+    <div id="header">
+      <ul class="abas">
+        <li>
+          <div class="aba selected" data-index="0">
+            <span>Endereço</span>
           </div>
-          <div class="conteudo" data-index="1">
-            Carregue um arquivo!
+        </li>
+        <li>
+          <div class="aba" data-index="1">
+            <span>Estabelecimentos</span>
           </div>
-          <div class="conteudo" data-index="2">
-            Carregue um arquivo!
+        </li>
+        <li>
+          <div class="aba" data-index="2">
+            <span>Registros</span>
           </div>
-          <div class="conteudo" data-index="3">
-            Carregue um arquivo!
+        </li>
+        <li>
+          <div class="aba" data-index="3">
+            <span>Resumo</span>
           </div>
-        </div>
+        </li>
+      </ul>
+    </div>
+    <div id="content">
+      <div class="conteudo show" data-index="0">
+        Carregue um arquivo!
       </div>
+      <div class="conteudo" data-index="1">Carregue um arquivo!</div>
+      <div class="conteudo" data-index="2">Carregue um arquivo!</div>
+      <div class="conteudo" data-index="3">Carregue um arquivo!</div>
+    </div>
+  </div>
 </body>
+
 </html>
