@@ -1,16 +1,6 @@
-var Q200 = [
-    {
-        "indice": "Q200",
-        "data": "01010001",
-        "entrada": "000",
-        "saida": "000",
-        "saldo": "000",
-    }
-]
+/* TABELAS e THEADERS */
 
-//const table_q200 = document.querySelector('.table-q200')
-const table_q200 = document.createElement('table');
-table_q200.classList.add('table-q200');
+const table_q200 = createTable();
 const q200_headers = [
     "Código",
     "Data",
@@ -18,6 +8,66 @@ const q200_headers = [
     "Saída",
     "Saldo",
 ];
+
+const table_0030 = createTable();
+const headers_0030 = [
+    "REG",
+    "ENDERECO",
+    "NUM",
+    "COMPL",
+    "BAIRRO",
+    "UF",
+    "COD_MUN",
+    "CEP",
+    "NUM_TEL",
+    "EMAIL",
+];
+
+const table_0040 = createTable();
+const headers_0040 = [
+    "REG",
+    "COD_IMÓVEL",
+    "PAIS",
+    "MOEDA",
+    "CAD_ITR",
+    "CAEPF",
+    "INSCR_ESTADUAL",
+    "NOME_IMÓVEL",
+    "ENDERECO",
+    "NUM",
+    "COMPL",
+    "BAIRRO",
+    "UF",
+    "COD_MUN",
+    "CEP",
+    "TIPO_EXPLORAÇÃO",
+    "PARTICIPAÇÃO",
+];
+
+const table_q100 = createTable();
+const headers_q100 = [
+    "REG",
+    "DATA",
+    "COD_IMÓVEL",
+    "COD_CONTA",
+    "NUM_DOC",
+    "TIPO_DOC",
+    "HIST",
+    "ID_PARTIC",
+    "TIPO_LANC",
+    "VL_ENTRADA",
+    "VL_SAIDA",
+    "SLD_FIN",
+    "NAT_SLD_FIN",
+];
+
+function createTable(className=''){
+    let table = document.createElement('table');
+    if (className) {
+        table.classList.add(className);
+    }
+    return table;
+}
 
 function createHeadersTable(table, headers) {
     //table.innerHTML = '<table><tr>';
@@ -30,6 +80,7 @@ function createHeadersTable(table, headers) {
     table.appendChild(tr);
 }
 
+/* FUNÇÂO PRINCIPAL DO TRATAMENTO DO ARQUIVO */
 function handleFile(files){
     createHeadersTable(table_q200, q200_headers);
     const reader = new FileReader();
@@ -42,32 +93,30 @@ function handleFile(files){
 
         lines.forEach(line => {
             let arrayLine = line.split("|");
-            if (arrayLine[0] == "Q200") {
-                let novo_q200 = {
-                    "indice": arrayLine[0],
-                    "data": arrayLine[1],
-                    "entrada": arrayLine[2],
-                    "saida": arrayLine[3],
-                    "saldo": arrayLine[4],
-                }
-                Q200.push(novo_q200);
-                table_q200.innerHTML += `<tr>
-                                            <td>${arrayLine[0]}</td>
-                                            <td>${formatDate(arrayLine[1])}</td>
-                                            <td>${formatMoney(arrayLine[2])}</td>
-                                            <td>${formatMoney(arrayLine[3])}</td>
-                                            <td>${formatMoney(arrayLine[4])}</td>
-                                        </tr>`;
-            }
+            preencherTabelas(table_q200, arrayLine);
+            
         });
 
-        Q200.shift();
+        //Q200.shift();
         conteudos[3].innerHTML = "";
         conteudos[3].appendChild(table_q200);
         conteudos[3].style.alignItems = 'flex-start';
         //console.log(Q200);
     };
 };
+
+/* PREENCHIMENTO DAS TABELAS DE ACORDO COM O TIPO DE REGISTRO */
+function preencherTabelas(tabela, dados) {
+    if (dados[0] == "Q200") {
+        tabela.innerHTML += `<tr>
+                                    <td>${dados[0]}</td>
+                                    <td>${formatDate(dados[1])}</td>
+                                    <td>${formatMoney(dados[2])}</td>
+                                    <td>${formatMoney(dados[3])}</td>
+                                    <td>${formatMoney(dados[4])}</td>
+                                </tr>`;
+    }
+}
 
 function formatDate(value) {
     return `${value.slice(0,2)}/${value.slice(2)}`;
@@ -79,7 +128,7 @@ function formatMoney(value) {
     return  parseNumber.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
 }
 
-/* Abas */
+/* CONTROLE DAS ABAS */
 
 const abas = document.querySelectorAll('.aba');
 const conteudos = document.querySelectorAll('.conteudo');
